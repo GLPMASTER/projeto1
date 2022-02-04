@@ -1,7 +1,5 @@
 package sandro.io.projeto1.entity;
 
-import java.util.Set;
-
 import javax.persistence.*;
 
 
@@ -9,7 +7,7 @@ import javax.persistence.*;
 public class Role {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)	
 	private Long id;
 	private String name;	
 	
