@@ -4,28 +4,30 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+
 @Entity
-public class User {
+public class Users {
+	
+	public Users() {
+		
+	}
+	
+	public Users(String name, String email) {
+		this.name = name;
+		this.email = email;
+	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
 	private String email;
-	
 	@ManyToMany
 	private Set<Role> roles;
 	
 	public Long getId() {
 		return id;
-	}
-	public User() {
-		
-	}
-	public User(String name, String email) {
-		super();
-		this.name = name;
-		this.email = email;
 	}
 	public void setId(Long id) {
 		this.id = id;
@@ -44,6 +46,12 @@ public class User {
 	}
 	
 	
+	public Set<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
 	
 
 }

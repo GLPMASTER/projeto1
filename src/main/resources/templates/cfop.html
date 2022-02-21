@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Projeto 1 Cfops</title>
+</head>
+<body>
+
+	<table border="1">
+		<tr>
+			<th>Cfop</th>
+			<th>Descricao</th>
+		</tr>
+		<tr th:each="cfop : ${cfopList}">
+			<td th:text="${cfop.cfopnatureza}"></td>
+			<td th:text="${cfop.cfopdescricao}"></t>
+		</tr>
+	</table>
+
+</body>
+</html>

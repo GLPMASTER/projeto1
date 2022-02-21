@@ -18,10 +18,10 @@ public class UserController {
 	
 	/////ola ola
 	
-	@RequestMapping("/user")
+	@RequestMapping("/users")
 	public String getUsers(Model model) {
 		model.addAttribute("usersList", this.userRepository.findAll());
-		return "user";
+		return "users";
 	}
 
 }

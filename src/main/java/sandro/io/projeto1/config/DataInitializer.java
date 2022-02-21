@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-import sandro.io.projeto1.entity.User;
+import sandro.io.projeto1.entity.Users;
 import sandro.io.projeto1.repository.UserRepository;
+
 
 @Component
 public class DataInitializer implements ApplicationListener<ContextRefreshedEvent>  {
@@ -19,36 +20,36 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		// TODO Auto-generated method stub
 		
-		List<User> users = userRepository.findAll();
+		List<Users> users = userRepository.findAll();
 		
 		if(users.isEmpty()) {
 			
-			createUser("sandro","email1");
-			createUser("mario","mario2");
-			createUser("maria","mjfghf");
+			createUsers("sandro","email1");
+			createUsers("mario","mario2");
+			createUsers("maria","mjfghf");
 			
 		}
 		
-		//User user = userRepository.getById(1L);
-		//User user = userRepository.findByName("mario");
+		//Users Users = UsersRepository.getById(1L);
+		//Users Users = UsersRepository.findByName("mario");
 		
-		//User user = userRepository.findByNameLike("mario");
-		User user = userRepository.findByNameIgnoreCase("MARIO");
+		//Users Users = UsersRepository.findByNameLike("mario");
+		Users u = userRepository.findByNameIgnoreCase("MARIO");
 		
-		System.out.println(user.getName());
+		System.out.println(u.getName());
 		
-		//userRepository.deleteById(2L);
+		//UsersRepository.deleteById(2L);
 		
-		//user.setName("Volverine");
-		//userRepository.save(user);
+		//Users.setName("Volverine");
+		//UsersRepository.save(Users);
 		
 		
 	}
 	
-	public void createUser(String name, String email) {
+	public void createUsers(String name, String email) {
 		
-		User user = new User(name, email);
-		userRepository.save(user);
+		Users users = new Users(name, email);
+		userRepository.save(users);
 	}
 
 }
